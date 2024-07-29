@@ -1,0 +1,15 @@
+(executable
+ (public_name opamh)
+ (libraries
+  cmdliner
+  bos
+  fpath
+  yojson
+  findlib
+  opam-format
+  logs
+  logs.fmt
+  tar
+  tar-unix
+  ))
+

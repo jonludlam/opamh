@@ -1,0 +1,40 @@
+opam-version: "2.0"
+
+version: "dev"
+homepage: "https://github.com/jonludlam/opamh"
+doc: "https://github.com/jonludlam/opamh"
+bug-reports: "https://github.com/jonludlam/opamh/issues"
+license: "ISC"
+
+maintainer: [
+  "Jon Ludlam <jon@recoil.org>"
+]
+authors: [
+  "Jon Ludlam <jon@recoil.org>"
+]
+dev-repo: "git+https://github.com/jonludlam/opamh.git"
+
+synopsis: "Opam hijinx"
+description: """
+Opam hijinx
+"""
+
+depends: [
+  "ocaml" {>= "5.1.0"}
+  "opam-format" {>= "2.1.5"}
+  "cmdliner"
+  "bos"
+  "fpath"
+  "ocamlfind"
+  "yojson"
+  "logs"
+  "tar"
+  "tar-unix"
+]
+
+build: [
+  ["dune" "subst"]
+  ["dune" "build" "-p" name "-j" jobs]
+  ["dune" "runtest" "-p" name] {with-test}
+]
+
