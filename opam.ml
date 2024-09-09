@@ -131,7 +131,8 @@ let dump_state output =
     let sel_compiler = List.filter (fun x ->
       List.mem (OpamPackage.name x) compiler_packages
     ) packages in
-  
+    Format.eprintf "Packages:\n%!";
+    Format.eprintf "[%a]" Fmt.(list ~sep:comma (of_to_string OpamPackage.to_string)) packages;
   let new_state =
     let s = OpamPackage.Set.of_list packages in
     { OpamTypes.sel_installed = s;
