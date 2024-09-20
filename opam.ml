@@ -72,7 +72,9 @@ let pkg_contents { name; version } =
         | OpamDirTrack.Added _ -> (
             try
               if not @@ Sys.is_directory Fpath.(to_string (prefix // v file))
-              then file :: acc
+              then (
+                Format.eprintf "File: %s\n%!" file;
+                file :: acc)
               else acc
             with _ ->
               acc
