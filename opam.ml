@@ -73,8 +73,8 @@ let pkg_contents { name; version } =
             try
               if not @@ Sys.is_directory Fpath.(to_string (normalize (prefix // v file)))
               then (
-                Format.eprintf "File: %s\n%!" file;
-                file :: acc)
+                Format.eprintf "File: %s\n%!" Fpath.(to_string (normalize (v file)));
+                Fpath.(to_string (normalize (v file))) :: acc)
               else acc
             with _ ->
               acc
