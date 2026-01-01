@@ -21,7 +21,7 @@ Opam hijinx
 
 depends: [
   "ocaml" {>= "5.1.0"}
-  "opam-format" {>= "2.1.5"}
+  "opam-format" {>= "2.5.0"}
   "cmdliner"
   "bos"
   "fpath"
